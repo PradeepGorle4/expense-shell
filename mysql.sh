@@ -9,6 +9,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+# Storing the logs
+
 LOGS_FOLDER="/var/log/expense.logs"
 SCRIPT_NAME=$(echo $0 |cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M)
@@ -36,7 +38,7 @@ echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_Name
 dnf install mysql-server -y $TIMESTAMP" &>>$LOG_FILE_Name
 validate "Installing mysql-server"
 
-dnf enable mysqld $TIMESTAMP" &>>$LOG_FILE_Name
+systemctl enable mysqld $TIMESTAMP" &>>$LOG_FILE_Name
 validate "Enabling mysql-server"
 
 systemctl start mysqld $TIMESTAMP" &>>$LOG_FILE_Name
