@@ -76,7 +76,7 @@ cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.serv
 dnf install mysql -y &>>$LOG_FILE_Name
 validate "Installing mysql client"
 
-mysql -h database.pradeepdevops.online -u root -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h database.pradeepdevops.online -u root -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE_Name
 validate "Loading the transactions schema and tables to database server"
 
 systemctl daemon-reload &>>$LOG_FILE_Name
