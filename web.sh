@@ -47,7 +47,8 @@ validate "Downloading the default content"
 
 unzip /tmp/frontend.zip /usr/share/nginx/html
 
-cp /home/ec2-user
+cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
+
 systemctl enable nginx
 validate "Enabling nginx"
 
