@@ -34,6 +34,8 @@ validate() {
     fi
 }
 
+check_root
+
 echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_Name
 
 dnf install mysql-server -y &>>$LOG_FILE_Name
