@@ -61,7 +61,7 @@ validate "Downloading the backend application content"
 cd /app
 validate "moving to app directory"
 
-rm -rf /app*
+rm -rf /app/*
 unzip /tmp/backend.zip &>>$LOG_FILE_Name
 validate "unzipping the backend application content in /app"
 
