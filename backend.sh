@@ -34,6 +34,8 @@ validate() {
     fi
 }
 
+check_root
+
 dnf module disable nodejs -y &>>$LOG_FILE_Name
 validate "Disabling default Nodejs"
 

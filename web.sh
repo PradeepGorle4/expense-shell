@@ -34,6 +34,8 @@ validate() {
     fi
 }
 
+check_root
+
 mkdir -p $LOGS_FOLDER
 validate "Creating logs folder"
 
