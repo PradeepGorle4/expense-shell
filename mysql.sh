@@ -48,6 +48,7 @@ mysql_secure_installation --set-root-pass ExpenseApp@1 -e 'show databases;'
 
 if [ $? -eq 0 ]
 then
-    echo "MYSQL root password already setup...... $Y SKIPPING $N"
+    echo "MYSQL root password already setup...... $Y SKIPPING $N "
+    mysql_secure_installation --set-root-pass ExpenseApp@1
     validate "setting Root password"
 fi
