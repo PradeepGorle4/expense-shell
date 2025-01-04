@@ -28,6 +28,7 @@ validate() {
     if [ $? -ne 0 ]
     then
         echo "$1 .......FAILED"
+        exit 1
     else
         echo "$1 .......SUCCESS"
     fi
@@ -60,7 +61,7 @@ validate "unzipping the backend application content in /app"
 npm install &>>$LOG_FILE_Name
 validate "Installing dependencies"
 
-cp /home/ec2-user/backend.service /etc/systemd/system/backend.service
+cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service
 
 
 # Load the MYSQL schema to database server

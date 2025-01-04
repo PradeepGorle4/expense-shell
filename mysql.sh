@@ -28,6 +28,7 @@ validate() {
     if [ $? -ne 0 ]
     then
         echo "$1 .......FAILED"
+        exit 1
     else
         echo "$1 .......SUCCESS"
     fi
