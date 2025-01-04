@@ -44,7 +44,7 @@ validate "Enabling mysql-server"
 systemctl start mysqld &>>$LOG_FILE_Name
 validate "Starting mysql-server"
 
-mysql -h database.pradeepdevops.online -u root -pExpenseApp@1 -e 'show databases;' 
+mysql -h database.pradeepdevops.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE_Name
 
 if [ $? -eq 0 ]
 then
