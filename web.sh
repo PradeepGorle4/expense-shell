@@ -34,13 +34,16 @@ validate() {
     fi
 }
 
+mkdir -p $LOGS_FOLDER
+validate "Creating logs folder"
+
 echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_Name
 
 dnf install nginx -y
 validate "Installing nginx"
 
 rm -rf /usr/share/nginx/html/*
-validate "Removing default html content"
+validate "Removing existing html content"
 
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
 validate "Downloading the default content"

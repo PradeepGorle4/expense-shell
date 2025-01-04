@@ -34,9 +34,6 @@ validate() {
     fi
 }
 
-mkdir -p $LOGS_FOLDER
-validate "Creating logs folder"
-
 dnf module disable nodejs -y &>>$LOG_FILE_Name
 validate "Disabling default Nodejs"
 
