@@ -52,7 +52,7 @@ else
     echo -e "Expense user is already exists...... $Y SKIPPING IT $N "
 fi
 
-mkdir /app
+mkdir -p /app
 validate "Creating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_Name
@@ -61,6 +61,7 @@ validate "Downloading the backend application content"
 cd /app
 validate "moving to app directory"
 
+rm -rf /app*
 unzip /tmp/backend.zip &>>$LOG_FILE_Name
 validate "unzipping the backend application content in /app"
 
@@ -80,9 +81,6 @@ validate "Loading the transactions schema and tables to database server"
 
 systemctl daemon-reload &>>$LOG_FILE_Name
 validate "reloading daemon"
-
-systemctl start backend &>>$LOG_FILE_Name
-validate "starting backend service"
 
 systemctl enable backend &>>$LOG_FILE_Name
 validate "Enabling backend"
