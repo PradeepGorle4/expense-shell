@@ -45,7 +45,9 @@ systemctl start mysqld &>>$LOG_FILE_Name
 validate "Starting mysql-server"
 
 mysql_secure_installation --set-root-pass ExpenseApp@1 -e 'show databases;'
+
 if [ $? -eq 0 ]
-    echo "MYSQL root password already setup...... $Y SKIPPING $N "
+then
+    echo "MYSQL root password already setup...... $Y SKIPPING $N"
     validate "setting Root password"
 fi
