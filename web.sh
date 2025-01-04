@@ -48,7 +48,10 @@ validate "Removing existing html content"
 curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
 validate "Downloading the default content"
 
-unzip /tmp/frontend.zip /usr/share/nginx/html
+cd /usr/share/nginx/html
+validate "Moving to html folder"
+
+unzip /tmp/frontend.zip
 
 cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
 
