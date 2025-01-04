@@ -39,7 +39,7 @@ validate "Creating logs folder"
 
 echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_Name
 
-dnf install nginx -y
+dnf install nginx -y &>>$LOG_FILE_Name
 validate "Installing nginx"
 
 rm -rf /usr/share/nginx/html/*
@@ -51,9 +51,10 @@ validate "Downloading the default content"
 cd /usr/share/nginx/html
 validate "Moving to html folder"
 
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>$LOG_FILE_Name
 
-cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
+cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf &>>$LOG_FILE_Name
+validate "Copying expense.conf"
 
 systemctl enable nginx
 validate "Enabling nginx"
