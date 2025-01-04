@@ -35,14 +35,14 @@ validate() {
 
 echo "Script started executing at $TIMESTAMP" &>>$LOG_FILE_Name
 
-dnf install mysql-server -y $TIMESTAMP &>>$LOG_FILE_Name
+dnf install mysql-server -y &>>$LOG_FILE_Name
 validate "Installing mysql-server"
 
-systemctl enable mysqld $TIMESTAMP &>>$LOG_FILE_Name
+systemctl enable mysqld &>>$LOG_FILE_Name
 validate "Enabling mysql-server"
 
-systemctl start mysqld $TIMESTAMP &>>$LOG_FILE_Name
+systemctl start mysqld &>>$LOG_FILE_Name
 validate "Starting mysql-server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 $TIMESTAMP" &>>$LOG_FILE_Name
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE_Name
 validate "setting Root password"
