@@ -50,6 +50,7 @@ then
     validate "Creating expense user"
 else
     echo -e "Expense user is already exists...... $Y SKIPPING IT $N "
+fi
 
 mkdir /app
 validate "Creating app directory"
